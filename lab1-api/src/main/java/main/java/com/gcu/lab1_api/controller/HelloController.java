@@ -1,15 +1,24 @@
 package main.java.com.gcu.lab1_api.controller;
 
-import java.util.Map;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dto.HelloResponse;
+import service.HelloService;
+
 @RestController
 public class HelloController {
-    @GetMapping("/hello")
-    public Map<String, String> hello()
+
+    private final HelloService helloService;
+
+    public HelloController(HelloService helloService)
     {
-        return Map.of("message", "Hello Spring Boot");
+        this.helloService = helloService;
+    }
+
+    @GetMapping("/hello")
+    public HelloResponse hello()
+    {
+        return helloService.getHello();
     }
 }
