@@ -2,10 +2,13 @@ package com.gcu.lab1_api.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.gcu.lab1_api.dto.ProductDto;
 import com.gcu.lab1_api.entity.Product;
 import com.gcu.lab1_api.repository.ProductRepository;
 
+@Service
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -45,7 +48,7 @@ public class ProductService {
             product.setDescription(productDto.description());
             product.setPrice(productDto.price());
             product.setQuantity(productDto.quantity());
-            var updatedProduct = productRepository.save(product);
+            var updatedProduct = productRepository.update(id,product);
             return new ProductDto(updatedProduct.getId(), updatedProduct.getName(), updatedProduct.getDescription(), updatedProduct.getPrice(), updatedProduct.getQuantity());
         }
         return null;
