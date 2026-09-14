@@ -8,10 +8,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.gcu.lab1_api.entity.Product;
-import com.gcu.lab1_api.service.ProductService;
+import com.gcu.lab1_api.dto.ProductDto;
 
 import java.util.List;
 
+import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,7 +29,7 @@ public class ProductServiceTest {
         List<Product> mockProducts = List.of(new Product(1L, "Widget", "A useful widget", 19.99, 100));
         when(productRepository.findAll()).thenReturn(mockProducts);
 
-        List<Product> result = productService.getAllProducts();
+        List<ProductDto> result = productService.getAllProducts();
 
         assertEquals(1, result.size());
         verify(productRepository).findAll();
