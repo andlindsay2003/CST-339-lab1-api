@@ -1,9 +1,9 @@
-package repository;
+package com.gcu.lab1_api.repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import entity.Product;
+import com.gcu.lab1_api.entity.Product;
 
 public interface ProductRepository {
     List<Product> findAll();

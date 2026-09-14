@@ -1,4 +1,4 @@
-package entity;
+package com.gcu.lab1_api.entity;
 
 public class Product {
     private Long id;

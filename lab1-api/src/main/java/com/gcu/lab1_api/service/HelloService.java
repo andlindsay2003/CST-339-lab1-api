@@ -1,10 +1,10 @@
-package service;
+package com.gcu.lab1_api.service;
 
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dto.HelloResponse;
+import com.gcu.lab1_api.dto.HelloResponse;
 
 @Service
 public class HelloService {
